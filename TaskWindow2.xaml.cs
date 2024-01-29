@@ -19,20 +19,21 @@ namespace WpfApp2
     /// </summary>
     public partial class TaskWindow2 : Window
     {
+        LoginData loginData = new();
         public TaskWindow2()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = loginData;
         }
-
-        public string LoginV { get; set; }
-        public string PasswordV { get; set; }
- 
+     
         private void Voqti(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Если зайдете, то все ваши данне будут слиты", "Предупреждение", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
             {
-                string messageBoxText = "Успешная регистрация!" + "\n" + "Ваши данные: " + "\n" + "Логин: " + LoginV + "\n" + "Пароль: " + PasswordV;
+                var exist = Saving.GetInstance().CheckData(loginData);
+
+                string messageBoxText = "Успешный вход!" + "\n" + "Ваши данные: " +
+                    "\n" + "Логин: " + loginData.Login + "\n" + "Пароль: " + loginData.Password;
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxResult result;
 
@@ -40,5 +41,11 @@ namespace WpfApp2
             }
 
         }
+    }
+
+    public class LoginData
+    {
+        public string Login { get; set; }
+        public string Password { get; set; }
     }
 }

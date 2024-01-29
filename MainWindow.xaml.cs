@@ -25,14 +25,14 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
 
             TaskWindow taskWindow = new TaskWindow();
             taskWindow.Show();
         }
 
-        private void Voqti(object sender, RoutedEventArgs e)
+        public void Voqti(object sender, RoutedEventArgs e)
         {
 
             TaskWindow2 taskWindow = new TaskWindow2();

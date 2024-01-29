@@ -19,23 +19,26 @@ namespace WpfApp2
     /// </summary>
     public partial class TaskWindow : Window
     {
+
+        LoginData loginData = new();
         public TaskWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = loginData;
         }
-        public string Login { get; set; }
-        public string Password { get; set; }
 
-        private void Click_Button2(object sender, RoutedEventArgs e)
+        public void Click_Button2(object sender, RoutedEventArgs e)
         {
+
+
             if (MessageBox.Show("Если зайдете, то все ваши данне будут слиты", "Предупреждение", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
             {
-                string messageBoxText = "Успешная регистрация!" + "\n" + "Ваши данные: " + "\n" + "Логин: " + Login + "\n" + "Пароль: " + Password;
+                string messageBoxText = "Успешная регистрация!" + "\n" + "Ваши данные: " + "\n" + "Логин: " + loginData.Login + "\n" + "Пароль: " + loginData.Password;
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxResult result;
 
                 result = MessageBox.Show(messageBoxText);
+                Saving.GetInstance().Save(loginData);
             }
 
         }
