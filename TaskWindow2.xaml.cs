@@ -15,23 +15,24 @@ using System.Windows.Shapes;
 namespace WpfApp2
 {
     /// <summary>
-    /// Логика взаимодействия для TaskWindow.xaml
+    /// Логика взаимодействия для TaskWindow2.xaml
     /// </summary>
-    public partial class TaskWindow : Window
+    public partial class TaskWindow2 : Window
     {
-        public TaskWindow()
+        public TaskWindow2()
         {
             InitializeComponent();
             DataContext = this;
         }
-        public string Login { get; set; }
-        public string Password { get; set; }
 
-        private void Click_Button2(object sender, RoutedEventArgs e)
+        public string LoginV { get; set; }
+        public string PasswordV { get; set; }
+ 
+        private void Voqti(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Если зайдете, то все ваши данне будут слиты", "Предупреждение", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
             {
-                string messageBoxText = "Успешная регистрация!" + "\n" + "Ваши данные: " + "\n" + "Логин: " + Login + "\n" + "Пароль: " + Password;
+                string messageBoxText = "Успешная регистрация!" + "\n" + "Ваши данные: " + "\n" + "Логин: " + LoginV + "\n" + "Пароль: " + PasswordV;
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxResult result;
 

@@ -31,5 +31,12 @@ namespace WpfApp2
             TaskWindow taskWindow = new TaskWindow();
             taskWindow.Show();
         }
+
+        private void Voqti(object sender, RoutedEventArgs e)
+        {
+
+            TaskWindow2 taskWindow = new TaskWindow2();
+            taskWindow.Show();
+        }
     }
 }
